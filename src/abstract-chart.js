@@ -22,7 +22,8 @@ class AbstractChart extends Component {
           x2={width}
           y2={(height / 4 * i) + paddingTop}
           stroke={this.props.chartConfig.color(0.2)}
-          strokeDasharray="5, 10"
+          //strokeDasharray="5, 10"
+	  strokeDasharray="0, 0"
           strokeWidth={1}
         />
       )
@@ -76,7 +77,8 @@ class AbstractChart extends Component {
           x2={Math.floor((width - paddingRight) / data.length * (i) + paddingRight)}
           y2={height - (height / 4) + paddingTop}
           stroke={this.props.chartConfig.color(0.2)}
-          strokeDasharray="5, 10"
+          //strokeDasharray="5, 10"
+	  strokeDasharray="0, 0"
           strokeWidth={1}
         />
       )
