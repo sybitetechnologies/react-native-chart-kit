@@ -149,7 +149,8 @@ class LineChart extends AbstractChart {
         <Path
           key={index}
           d={d}
-          fill="url(#fillShadowGradient)"
+          //fill="url(#fillShadowGradient)"
+          fill="none"
           strokeWidth={0}
         />)
     })
