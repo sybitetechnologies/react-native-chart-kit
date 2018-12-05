@@ -22,7 +22,7 @@ class LineChart extends AbstractChart {
           <Circle
             key={Math.random()}
             cx={paddingRight + (i * (width - paddingRight) / dataset.data.length)}
-            cy={((height / 4 * 3 * (1 - ((x - Math.min(...dataset.data)) / this.calcScaler(dataset.data)))) + paddingTop)}
+            cy={((height / 4 * 3 * (1 - ((x - Math.min(...data[1].data)) / this.calcScaler(data[1].data)))) + paddingTop)}
             r="4"
             // fill={this.props.chartConfig.color(0.7)}
             fill={dataset.svg.fill}
@@ -37,6 +37,7 @@ class LineChart extends AbstractChart {
   }
 
   renderShadow = config => {
+    return false
     if (this.props.bezier) {
       return this.renderBezierShadow(config)
     }
@@ -49,7 +50,7 @@ class LineChart extends AbstractChart {
           points={dataset.data.map((x, i) =>
             (paddingRight + (i * (width - paddingRight) / dataset.data.length)) +
           ',' +
-           (((height / 4 * 3 * (1 - ((x - Math.min(...dataset.data)) / this.calcScaler(dataset.data)))) + paddingTop))
+           (((height / 4 * 3 * (1 - ((x - Math.min(...data[1].data)) / this.calcScaler(data[1].data)))) + paddingTop))
           ).join(' ') + ` ${paddingRight + ((width - paddingRight) / dataset.data.length * (dataset.data.length - 1))},${(height / 4 * 3) + paddingTop} ${paddingRight},${(height / 4 * 3) + paddingTop}`}
           fill="url(#fillShadowGradient)"
           strokeWidth={0}
@@ -73,7 +74,7 @@ class LineChart extends AbstractChart {
       const points = dataset.data.map((x, i) =>
       (paddingRight + (i * (width - paddingRight) / dataset.data.length)) +
       ',' +
-       (((height / 4 * 3 * (1 - ((x - Math.min(...dataset.data)) / this.calcScaler(dataset.data))))) + paddingTop))
+       (((height / 4 * 3 * (1 - ((x - Math.min(...data[1].data)) / this.calcScaler(data[1].data))))) + paddingTop))
 
       output.push (
         <Polyline
@@ -203,7 +204,7 @@ class LineChart extends AbstractChart {
             })}
             {this.renderVerticalLines({
               ...config,
-              data: data.datasets[0].data,
+              data: data.datasets[1].data,
               paddingTop,
               paddingRight
             })}
